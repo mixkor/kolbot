@@ -1,8 +1,8 @@
 var StarterConfig = {
-	MinGameTime: 120, // Minimum game length in seconds. If a game is ended too soon, the rest of the time is waited in the lobby
+	MinGameTime: 180, // Minimum game length in seconds. If a game is ended too soon, the rest of the time is waited in the lobby
 	PingQuitDelay: 30, // Time in seconds to wait in lobby after quitting due to high ping
 	CreateGameDelay: 10, // Seconds to wait before creating a new game
-	ResetCount: 999, // Reset game count back to 1 every X games.
+	ResetCount: 99, // Reset game count back to 1 every X games.
 	CharacterDifference: 99, // Character level difference. Set to false to disable character difference.
 	ChatActionsDelay: 2, // Seconds to wait in lobby before entering a channel
 
@@ -14,14 +14,14 @@ var StarterConfig = {
 
 	SwitchKeyDelay: 5, // Seconds to wait before switching a used/banned key or after realm down
 	CrashDelay: rand(120, 150), // Seconds to wait after a d2 window crash
-	FTJDelay: 10, // Seconds to wait after failing to create a game
-	RealmDownDelay: 3, // Minutes to wait after getting Realm Down message
+	FTJDelay: 180, // Seconds to wait after failing to create a game
+	RealmDownDelay: 30, // Minutes to wait after getting Realm Down message
 	UnableToConnectDelay: 5, // Minutes to wait after Unable To Connect message
 	TCPIPNoHostDelay: 5, // Seconds to wait after Cannot Connect To Server message
 	CDKeyInUseDelay: 5, // Minutes to wait before connecting again if CD-Key is in use.
 	ConnectingTimeout: 20, // Seconds to wait before cancelling the 'Connecting...' screen
 	PleaseWaitTimeout: 10, // Seconds to wait before cancelling the 'Please Wait...' screen
-	WaitInLineTimeout: 60, // Seconds to wait before cancelling the 'Waiting in Line...' screen
+	WaitInLineTimeout: 1800, // Seconds to wait before cancelling the 'Waiting in Line...' screen
 	GameDoesNotExistTimeout: 30 // Seconds to wait before cancelling the 'Game does not exist.' screen
 };
 
@@ -161,12 +161,21 @@ function setNextGame() {
 
 function locationTimeout(time, location) {
 	var endtime = getTickCount() + time;
+	var loc1 = getLocation();
+	var loc2 = loc1;
 
-	while (getLocation() === location && endtime > getTickCount()) {
-		delay(500);
+	while (loc1 === location && endtime > getTickCount()) {
+		loc1 = getLocation();
+		delay(1000);
+		if(location === 2 && loc1 !== null && loc1 !== 2)
+		{
+		D2Bot.printToConsole("대기열 로게이션 보정 (로케이션 리턴값:" + loc1 + ")",5);
+		delay(5000); //그래도 팅기면 10000으로늘려보세요 (1000 = 1초)
+		loc1 = 2;
+		}
 	}
 
-	return (getLocation() !== location);
+	return (loc1 !== location);
 }
 
 function updateCount() {
@@ -298,7 +307,7 @@ function main() {
 					DataFile.updateStats("ingameTick");
 				}
 
-				D2Bot.updateStatus("Game: " + me.gamename + timer(gameStart));
+				D2Bot.updateStatus("Game:"+me.gamename+timer(gameStart)+ " Ping:" + me.ping + " Level:" + me.getStat(12)+ " Area:" + me.area);
 			}
 
 			delay(1000);
