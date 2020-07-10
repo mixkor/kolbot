@@ -246,6 +246,12 @@ function main() {
 			me.maxgametime = 0;
 
 			while (sojCounter < Config.SoJWaitTime) {
+				if(sojCounter % 2 == 0) {
+				Town.move("stash");
+				}
+				else {
+				Town.move("portalspot");
+				}
 				me.overhead("Waiting for SoJ sales... " + (Config.SoJWaitTime - sojCounter) + " min");
 				delay(6e4);
 
