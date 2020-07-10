@@ -709,7 +709,7 @@ function main() {
 
 		if (quitFlag && canQuit && (typeof quitListDelayTime === "undefined" || getTickCount() >= quitListDelayTime)) {
 			print("ÿc8Run duration ÿc2" + ((getTickCount() - me.gamestarttime) / 1000));
-			Town.goToTown();	   
+			Town.goToTown();
 
 			if (Config.LogExperience) {
 				Experience.log();
