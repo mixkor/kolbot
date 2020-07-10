@@ -620,8 +620,13 @@ function main() {
 				}
 
 				if (Config.LifeChicken > 0 && me.hp <= Math.floor(me.hpmax * Config.LifeChicken / 100)) {
+					if (Config.MFLeader) {say("quit");}
+					quit();
 					D2Bot.printToConsole("Life Chicken (" + me.hp + "/" + me.hpmax + ")" + this.getNearestMonster() + " in " + Pather.getAreaName(me.area) + ". Ping: " + me.ping, 9);
 					D2Bot.updateChickens();
+					if (Config.LogExperience) {
+							Experience.log();
+						}
 					this.exit();
 
 					break;
