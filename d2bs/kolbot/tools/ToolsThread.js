@@ -71,15 +71,20 @@ function main() {
 		for (i = 0; i < Config.PingQuit.length; i += 1) {
 			if (Config.PingQuit[i].Ping > 0) {
 				if (me.ping >= Config.PingQuit[i].Ping) {
-					me.overhead("High Ping");
+					me.overhead("높은핑 경고 ( 현재값:" + me.ping + "ms / 설정값:" + Config.PingQuit[i].Ping + "ms)");
 
 					if (pingTimer[i] === undefined || pingTimer[i] === 0) {
 						pingTimer[i] = getTickCount();
 					}
 
 					if (getTickCount() - pingTimer[i] >= Config.PingQuit[i].Duration * 1000) {
+						if (Config.MFLeader) {say("quit");}
+						quit();
 						if (print) {
-							D2Bot.printToConsole("High ping (" + me.ping + "/" + Config.PingQuit[i].Ping + ") - leaving game.", 9);
+							D2Bot.printToConsole("높은핑으로 인하여 ( 현재값:" + me.ping + "ms / 설정값:" + Config.PingQuit[i].Ping + "ms ) 강제종료합니다.", 9);
+							if (Config.LogExperience) {
+								Experience.log();
+							}
 						}
 
 						scriptBroadcast("pingquit");
