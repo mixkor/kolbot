@@ -402,8 +402,82 @@ MainSwitch:
 		}
 
 		break;
-	case 2: // Waiting In Line
-		D2Bot.updateStatus("Waiting...");
+	case 2: // Waiting In Line	
+	let NLine = ControlAction.getText(4, 427, 234, 300, 100);  // Now Line
+	var TLine = ControlAction.getQueueTime(); //Total Line
+			
+			let RLine; // Real Line
+			let Lsec = 1;  // Time
+		
+			while ((RLine = ControlAction.getQueueTime())) {
+				Lsec++;			
+				if (NLine !== RLine) {
+					NLine = RLine;
+					
+				if (NLine.toString().length==1) NLine = "0000" + NLine;
+				if (NLine.toString().length==2) NLine = "000" + NLine;
+				if (NLine.toString().length==3) NLine = "00" + NLine;
+				if (NLine.toString().length==4) NLine = "0" + NLine;
+				
+				if (TLine.toString().length==1) TLine = "0000" + TLine;
+				if (TLine.toString().length==2) TLine = "000" + TLine;
+				if (TLine.toString().length==3) TLine = "00" + TLine;
+				if (TLine.toString().length==4) TLine = "0" + TLine;
+	
+				let NM = Math.round(((NLine/((TLine-NLine)/Lsec))%3600)/60);
+				if (NM.toString().length==1) NM = "0" + NM;
+				
+				let NS = Math.round((NLine/((TLine-NLine)/Lsec))%60);
+				if (NS.toString().length==1) NS = "0" + NS;
+				
+				let TM = Math.round(((TLine/((TLine-NLine)/Lsec))%3600)/60);
+				if (TM.toString().length==1) TM = "0" + TM;
+				
+				let TS = Math.round((TLine/((TLine-NLine)/Lsec))%60);
+				if (TS.toString().length==1) TS = "0" + TS;
+				
+				let Per = Math.round(100 - ((NLine/TLine) * 100));
+				
+				if (Per < 10) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ░░░░░░░░░░ " + Per + " %");
+				}
+				else if (Per >= 10 && Per < 20) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") █░░░░░░░░░ " + Per + " %");
+				}
+				else if (Per >= 20 && Per < 30) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ██░░░░░░░░ " + Per + " %");
+				}
+				else if (Per >= 30 && Per < 40) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ███░░░░░░░ " + Per + " %");
+				}
+				else if (Per >= 40 && Per < 50) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ████░░░░░░ " + Per + " %");
+				}
+				else if (Per >= 50 && Per < 60) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") █████░░░░░ " + Per + " %");
+				}
+				else if (Per >= 60 && Per < 70) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ██████░░░░ " + Per + " %");
+				}
+				else if (Per >= 70 && Per < 80) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ███████░░░ " + Per + " %");
+				}
+				else if (Per >= 80 && Per < 90) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ████████░░ " + Per + " %");
+				}
+				else if (Per >= 90 && Per < 98) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") █████████░ " + Per + " %");
+				}
+				else if (Per >= 98 && Per < 100) {
+				D2Bot.updateStatus(" Line (" + NLine + "/" + TLine + ") Time (" + NM + ":"+ NS + "/" + TM + ":" + TS + ") ██████████ " + Per + " %");
+				}
+				}
+				delay(1000);
+				
+			}
+					
+		break;
+		
 		locationTimeout(StarterConfig.WaitInLineTimeout * 1e3, location);
 		ControlAction.click(6, 433, 433, 96, 32);
 
