@@ -233,7 +233,7 @@ function main () {
 					DataFile.updateStats("runs", gameCount);
 				}
 
-				D2Bot.updateStatus("| "+me.gamename+timer(gameStart)+ " | Ping " + me.ping + " | Lev " + me.getStat(12) + " | (" + me.area + ") "  + Pather.getAreaName(me.area) + " |");
+				if (me.area) {D2Bot.updateStatus("| "+me.gamename+timer(gameStart)+ " | Ping " + me.ping + " | Lev " + me.getStat(12) + " | (" + me.area + ") "  + Pather.getAreaName(me.area) + " |");}
 			}
 
 			delay(1000);
