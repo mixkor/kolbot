@@ -102,6 +102,8 @@ function BattleOrders () {
 
 	Pather.moveTo(me.x + 6, me.y + 6);
 
+	if (me.classid !== 4) {Precast.doPrecast(true);}  // 프리캐스트
+	
 	let i,
 		tick = getTickCount(),
 		failTimer = 60;
