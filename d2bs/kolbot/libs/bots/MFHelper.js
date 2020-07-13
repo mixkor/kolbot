@@ -136,6 +136,10 @@ MainLoop:
 				delay(100 + me.ping);
 			}
 
+			if (me.inTown && (Config.HealHP > 0 && me.hp < Math.floor(me.hpmax * Config.HealHP / 100))) {
+				Town.initNPC("Heal", "heal");	//조건: 타운에 있을때 + 설정한 Config.TownHP 보다 체력이 낮을때 NPC Heal 을 받는다.
+			}
+
 			playerAct = Misc.getPlayerAct(Config.Leader);
 
 			if (playerAct && playerAct !== me.act) {
