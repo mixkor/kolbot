@@ -78,7 +78,6 @@ function main() {
 					}
 
 					if (getTickCount() - pingTimer[i] >= Config.PingQuit[i].Duration * 1000) {
-						if (Config.MFLeader) {say("quit");}
 						quit();
 						if (print) {
 							D2Bot.printToConsole("높은핑으로 인하여 ( 현재값:" + me.ping + "ms / 설정값:" + Config.PingQuit[i].Ping + "ms ) 강제종료합니다.", 9);
@@ -620,7 +619,6 @@ function main() {
 				}
 
 				if (Config.LifeChicken > 0 && me.hp <= Math.floor(me.hpmax * Config.LifeChicken / 100)) {
-					if (Config.MFLeader) {say("quit");}
 					quit();
 					D2Bot.printToConsole("Life Chicken (" + me.hp + "/" + me.hpmax + ")" + this.getNearestMonster() + " in " + Pather.getAreaName(me.area) + ". Ping: " + me.ping, 9);
 					D2Bot.updateChickens();
