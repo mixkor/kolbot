@@ -425,15 +425,14 @@ MainSwitch:
 				if (TLine.toString().length==4) TLine = "0" + TLine;
 	
 				let NM = Math.round(((NLine/((TLine-NLine)/Lsec))%3600)/60);
-				if (NM.toString().length==1) NM = "0" + NM;
-				
 				let NS = Math.round((NLine/((TLine-NLine)/Lsec))%60);
-				if (NS.toString().length==1) NS = "0" + NS;
-				
 				let TM = Math.round(((TLine/((TLine-NLine)/Lsec))%3600)/60);
-				if (TM.toString().length==1) TM = "0" + TM;
-				
 				let TS = Math.round((TLine/((TLine-NLine)/Lsec))%60);
+				
+				if (TLine-NLine == 0) {NM = 0;NS = 0;TM = 0;TS = 0;}
+				if (NM.toString().length==1) NM = "0" + NM;
+				if (NS.toString().length==1) NS = "0" + NS;
+				if (TM.toString().length==1) TM = "0" + TM;
 				if (TS.toString().length==1) TS = "0" + TS;
 				
 				let Per = Math.round(100 - ((NLine/TLine) * 100));
