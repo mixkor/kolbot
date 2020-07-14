@@ -545,6 +545,15 @@ function main() {
 				if (Config.KillDclone) {
 					load("tools/clonekilla.js");
 				}
+				else {
+					while (true) {
+						Town.move("stash");
+						delay(5000);
+						Town.move("portalspot");
+						delay(5000);
+					}
+				}
+
 			}
 
 			break;
