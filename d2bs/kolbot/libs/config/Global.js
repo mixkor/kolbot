@@ -14,8 +14,10 @@ function LoadConfig() {
 	 */
 
 	// 사용자 애드온 스크립트. libs/bots/UserAddon.js의 설명을 읽으십시오
+	
 	//보스몹/사냥터스크립트를실행하려면반드시‘false’로변경
 	Scripts.UserAddon = false; // !!! 보스/영역 스크립트를 실행하려면 false로 설정해야합니다 !!!
+	
 	// 배틀 오더 스크립트 - 2 이상의 캐릭에 사용 (예 : BO barb + sorc)
 	Scripts.BattleOrders = false;
 		Config.BattleOrders.Mode = 0; // 0 = BO 제공, 1 = BO 획득
@@ -24,27 +26,28 @@ function LoadConfig() {
 		Config.BattleOrders.QuitOnFailure = false; // BO가 실패하면 게임을 종료
 		Config.BattleOrders.SkipIfTardy = true; // 다른 플레이어가 이미 BO 자리에서 이동 한 경우 스크립트로 진행
 		Config.BattleOrders.Wait = 10; // 플레이어가 게임에 참여할 때까지 기다리는 시간 (초기 값 : 10)
-	Scripts.BoBarbHelper = false; // specific HC script with BoBarb on the Bo area during whole game | set it only in barbarian config
-		Config.BoBarbHelper.Mode = -1; // 0 = give BO, -1 = disabled
-		Config.BoBarbHelper.Wp = 35; // 35 = Catacombs level 2
+	Scripts.BoBarbHelper = false; // 바바리안 전용 스크립트. 특정 웨이포인트에서 기다리면서 다른캐릭터에게 오더만 줍니다.
+		Config.BoBarbHelper.Mode = -1; // 0 = BO 제공, -1 = 비활성화
+		Config.BoBarbHelper.Wp = 35; // 대기할 웨이포인트 지역 / 35 = Catacombs level 2
 
-	// Team MF system
-	Config.MFLeader = false; // Set to true if you have one or more MFHelpers. Opens TP and gives commands when doing normal MF runs.
-	Scripts.MFHelper = false; // Run the same MF run as the MFLeader. Leader must have Config.MFLeader = true
-		Config.BreakClearLevel = false; // Stop clearing the current area if the leader goes to another area																								  
-	/* ### leeching section ###
-	* Unless stated otherwise, leader's character name isn't needed on order to run.
-	* Don't use more scripts of the same type! (Run AutoBaal OR BaalHelper, not both)
+	// 팀플사냥 MF설정
+	Config.MFLeader = false; // 보조 캐릭터(MFHelpers)가 있는 리더 캐릭터 일때에만"true"로설정, 타운포탈(TP)을 열어주고 명령을 내립니다. 부기사/쫄봇캐릭터:"false",봇솔플시:"false"
+	Scripts.MFHelper = false; // MFLeader와 팀플을 합니다. 리더는 Config.MFLeader = true 로 설정해야 합니다. 팀플시설정,기사는항상:false,부기사나쫄봇은true로. *MF(MagicFind;앵벌)
+		Config.BreakClearLevel = false; // 리더가 다른 지역으로 이동하면 현재 진행중인 ClearLevel을(던전사냥) 중지합니다.
+		
+	/* ### 리칭 섹션 ###
+	* 달리 명시되지 않는 한, 리더의 캐릭터 이름은 달리기 위해 필요하지 않습니다.
+	* 같은 유형의 스크립트를 더 사용하지 마십시오! 예) AutoBaal 과 BaalHelper 동시실행
 	*/
 
-	Config.Leader = ""; // Leader's ingame character name. Leave blank to try auto-detection (works in AutoBaal, Wakka, MFHelper)
-	Config.QuitList = [""]; // List of character names to quit with. Example: Config.QuitList = ["MySorc", "MyDin"];
-	Config.QuitListMode = 0; // 0 = use character names; 1 = use profile names (all profiles must run on the same computer).
-	Config.QuitListDelay = []; // Quit the game with random delay in case of using Config.QuitList. Example: Config.QuitListDelay = [1, 10]; will exit with random delay between 1 and 10 seconds.
-																																														   
-	// Boss/area scripts
+	Config.Leader = ""; // 리더의 이름(MFLeader). 자동 탐지를 시도하려면 비워 두십시오. (AutoBaal,Wakka,MFHelper에서 작동함)
+	Config.QuitList = [""]; // 같이 종료할 캐릭터 이름. 예제: Config.QuitList = ["MySorc", "MyDin"];
+	Config.QuitListMode = 0; // 0 = 캐릭터이름 사용; 1 = 프로필이름 사용 (모든 프로필은 동일한 컴퓨터에서 실행해야 함).
+	Config.QuitListDelay = []; // Config.QuitList 종료시 무작위 시간지연 설정, 예제: Config.QuitListDelay = [1, 10]; 1초에서 10초 사이에 무작위 지연 종료를 합니다.
+	
+	// 보스/지역 스크립트
 
-	// *** act 1 ***
+	// *** 액트 1 ***
 	Scripts.Corpsefire = false;  // 불타는시체(덴오브이블) 
 		Config.Corpsefire.ClearDen = false;  // 덴오브이블 모든 몹처치
 	Scripts.Mausoleum = false;  // 머설리움  
@@ -55,8 +58,8 @@ function LoadConfig() {
 	Scripts.UndergroundPassage = false;  // 지하통로
 	Scripts.Coldcrow = false;  // 콜트크로우(콜드플레인케이브1층)
 	Scripts.Tristram = false;  // 트리스트럼
-		Config.Tristram.WalkClear = false; // Disable teleport while clearing to protect leechers  리처캐릭터보호위해텔레포트금지
-		Config.Tristram.PortalLeech = false; // Set to true to open a portal for leechers.  리처캐릭터를위한포탈열게끔설정
+		Config.Tristram.WalkClear = false; // 쫄캐릭터(MFHelper) 보호를 위해 텔레포트 금지
+		Config.Tristram.PortalLeech = false; // 쫄캐릭터를 위한 포탈을 엽니다.
 	Scripts.Pit = false;  // 피트
 		Config.Pit.ClearPit1 = true;  // 피트 1층 모든 몹 처치
 	Scripts.Treehead = false;  // 트리헤드 우드피스트(다크우드 스크롤 나무지킴이)
@@ -67,13 +70,13 @@ function LoadConfig() {
 	Scripts.Andariel = false;  // 안다리엘
 	Scripts.Cows = false;  // 시크리트 카우 레벨
 
-	// *** act 2 ***
+	// *** 액트 2 ***
 	Scripts.Radament = false;  // 라다먼트 (하수구 3층)
 	Scripts.Coldworm = false;  // 콜드웜 버로워 (마고트동굴 3층)
 		Config.Coldworm.KillBeetleburst = false;  // 비틀버스 트처치(파오아시스)
-		Config.Coldworm.ClearMaggotLair = false; // Clear all 3 levels  마고트동굴 3층 모든 몹 처치
+		Config.Coldworm.ClearMaggotLair = false; // 마고트동굴 3층 모든 몹 처치
 	Scripts.AncientTunnels = false;  // 고대수로
-		Config.AncientTunnels.OpenChest = false; // Open special chest in Lost City  잊혀진 도시 상자열기
+		Config.AncientTunnels.OpenChest = false; // 고대 수로 가는 길목에 있는 상자열기
 		Config.AncientTunnels.KillDarkElder = false;  // 다크엘더 처치
 	Scripts.Summoner = false;  // 소환술사
 		Config.Summoner.FireEye = false;  // 파이어아이 처치 (궁전지하3층)
@@ -86,7 +89,7 @@ function LoadConfig() {
 	Scripts.Icehawk = false;  // 아이스호크 리프트윙(하수구)
 	Scripts.Endugu = false;  // 마법사 엔두구(프레이어던전3층)
 	Scripts.Travincal = false;  // 트라빈컬
-		Config.Travincal.PortalLeech = false; // Set to true to open a portal for leechers. 리처를 위한 포탈 열어주기
+		Config.Travincal.PortalLeech = false; // 쫄캐릭터를 위한 포탈을 엽니다.
 	Scripts.Mephisto = false;  // 메피스토
 		Config.Mephisto.MoatTrick = false;  // 강건너 불구경으로 메피스토잡기
 		Config.Mephisto.KillCouncil = false;  // 증오의 사원 3층내 카운슬 멤버 처치
@@ -102,7 +105,7 @@ function LoadConfig() {
 	Scripts.FastDiablo = false;  // 디아블로 빠른처치
 	Scripts.Diablo = false;  // 디아블로
 		Config.Diablo.WalkClear = false; // Disable teleport while clearing to protect leechers 리처를 보호하고자 텔레포트 금지
-		Config.Diablo.Entrance = true; // Start from entrance 카오스 생츄어리 입구에서부터 시작
+		Config.Diablo.Entrance = true; // 카오스 생츄어리 입구에서부터 시작합니다.
 //		Config.Diablo.SealWarning = ["Leave the seals alone!"]; // 따옴표 내에 씨일 경고 안내문 입력
 //		Config.Diablo.EntranceTP = ["카오스 생츄어리 입구에 타운포탈을 엽니다. (안전함)"]; // 따옴표 내에 최초 포탈 열 때의 안내문 입력
 //		Config.Diablo.StarTP = ["카오스 생츄어리 중앙에 타운포탈을 엽니다. (위험함 ->> 1시,5시 방향 주의바람)"]; // 따옴표 내에 별모양 지형 (디아등장위치)에 포탈 열 때의 안내문 입력
