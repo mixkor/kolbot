@@ -83,7 +83,7 @@ function LoadConfig() {
 	Scripts.Tombs = false;  // 탈라샤의 무덤
 	Scripts.Duriel = false;  // 듀리엘
 
-	// *** act 3 ***
+	// *** 액트 3 ***
 	Scripts.Stormtree = false;  // 스톰트리 (남부쿠라스트로 가는 길목)
 	Scripts.KurastTemples = false;  // 쿠라스트 사원
 	Scripts.Icehawk = false;  // 아이스호크 리프트윙(하수구)
@@ -95,7 +95,7 @@ function LoadConfig() {
 		Config.Mephisto.KillCouncil = false;  // 증오의 사원 3층내 카운슬 멤버 처치
 		Config.Mephisto.TakeRedPortal = true;  // 4막으로 이동하는 빨간 포탈 이용하기
 
-	// *** act 4 ***
+	// *** 액트 4 ***
 	Scripts.OuterSteppes = false;
 	Scripts.Izual = false;  // 이주얼 (절망의평원)
 	Scripts.Hephasto = false;  // 대장장이 헤파스토(불길의강,헬포지)
@@ -411,73 +411,78 @@ function LoadConfig() {
 	 */
 	Config.Cubing = false; // Set to true to enable cubing.
 
-	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
+	// 다음 레시피의 재료는 자동 수집됩니다.classids는 libs/NTItemAlias.dbl에서 확인하세요.
+	
+	//Config.Recipes.push([Recipe.Gem, "Chipped Amethyst"]); // 최하급 자수정(Chipped Amethyst) -> 하급 자수정(Flawed Amethyst)
+	//Config.Recipes.push([Recipe.Gem, "Chipped Topaz"]); // 최하급 토파즈(Chipped Topaz) -> 하급 토파즈(Flawed Topaz)
+	//Config.Recipes.push([Recipe.Gem, "Chipped Sapphire"]); // 최하급 사파이어(Chipped Sapphire) -> 하급 사파이어(Flawed Sapphire)
+	//Config.Recipes.push([Recipe.Gem, "Chipped Emerald"]); // 최하급 에메랄드(Chipped Emerald) -> 하급 에메랄드(Flawed Emerald)
+	//Config.Recipes.push([Recipe.Gem, "Chipped Ruby"]); // 최하급 루비(Chipped Ruby) -> 하급 루비(Flawed Ruby)
+	//Config.Recipes.push([Recipe.Gem, "Chipped Diamond"]); // 최하급 다이아(Chipped Diamond) -> 하급 다이아(Flawed Diamond)
+	//Config.Recipes.push([Recipe.Gem, "Chipped Skull"]); // 최하급 스컬(Chipped Skull) -> 하급 스컬(Flawed Skull)
 
-	//Config.Recipes.push([Recipe.Gem, "Chipped Amethyst"]); // make FlawedAmethyst
-	//Config.Recipes.push([Recipe.Gem, "Chipped Topaz"]); // make Flawed Topaz
-	//Config.Recipes.push([Recipe.Gem, "Chipped Sapphire"]); // make Flawed Sapphire
-	//Config.Recipes.push([Recipe.Gem, "Chipped Emerald"]); // make Flawed Emerald
-	//Config.Recipes.push([Recipe.Gem, "Chipped Ruby"]); // make Flawed Ruby
-	//Config.Recipes.push([Recipe.Gem, "Chipped Diamond"]); // make Flawed Diamond
-	//Config.Recipes.push([Recipe.Gem, "Chipped Skull"]); // make Flawed Skull
+	//Config.Recipes.push([Recipe.Gem, "Flawed Amethyst"]); // 하급 자수정(Flawed Amethyst) -> 자수정(Amethyst)
+	//Config.Recipes.push([Recipe.Gem, "Flawed Topaz"]); // 하급 토파즈(Flawed Topaz) -> 토파즈(Topaz)
+	//Config.Recipes.push([Recipe.Gem, "Flawed Sapphire"]); // 하급 사파이어(Flawed Sapphire) -> 사파이어(Sapphire)
+	//Config.Recipes.push([Recipe.Gem, "Flawed Emerald"]); // 하급 에메랄드(Flawed Emerald) -> 에메랄드(Emerald)
+	//Config.Recipes.push([Recipe.Gem, "Flawed Ruby"]); // 하급 루비(Flawed Ruby) -> 루비(Ruby)
+	//Config.Recipes.push([Recipe.Gem, "Flawed Diamond"]); // 하급 다이아(Flawed Diamond) -> 다이아(Diamond)
+	//Config.Recipes.push([Recipe.Gem, "Flawed Skull"]); // 하급 스컬(Flawed Skull) -> 스컬(Skull)
 
-	//Config.Recipes.push([Recipe.Gem, "Flawed Amethyst"]); // make Amethyst
-	//Config.Recipes.push([Recipe.Gem, "Flawed Topaz"]); // make Topaz
-	//Config.Recipes.push([Recipe.Gem, "Flawed Sapphire"]); // make Sapphire
-	//Config.Recipes.push([Recipe.Gem, "Flawed Emerald"]); // make Emerald
-	//Config.Recipes.push([Recipe.Gem, "Flawed Ruby"]); // make Ruby
-	//Config.Recipes.push([Recipe.Gem, "Flawed Diamond"]); // make Diamond
-	//Config.Recipes.push([Recipe.Gem, "Flawed Skull"]); // make Skull
+	//Config.Recipes.push([Recipe.Gem, "Amethyst"]); // 자수정(Amethyst) -> 상급 자수정(Flawless Amethyst)
+	//Config.Recipes.push([Recipe.Gem, "Topaz"]); // 토파즈(Topaz) -> 상급 토파즈(Flawless Topaz)
+	//Config.Recipes.push([Recipe.Gem, "Sapphire"]); // 사파이어(Sapphire) -> 상급 사파이어(Flawless Sapphire)
+	//Config.Recipes.push([Recipe.Gem, "Emerald"]); // 에메랄드(Emerald) -> 상급 에메랄드(Flawless Emerald)
+	//Config.Recipes.push([Recipe.Gem, "Ruby"]); // 루비(Ruby) -> 상급 루비(Flawless Ruby)
+	//Config.Recipes.push([Recipe.Gem, "Diamond"]); // 다이아(Diamond) -> 상급 다이아(Flawless Diamond)
+	//Config.Recipes.push([Recipe.Gem, "Skull"]); // 스컬(Skull) -> 상급 스컬(Flawless Skull)
 
-	Config.Recipes.push([Recipe.Gem, "Amethyst"]); // make Flawless Amethyst
-	Config.Recipes.push([Recipe.Gem, "Topaz"]); // make Flawless Topaz
-	Config.Recipes.push([Recipe.Gem, "Sapphire"]); // make Flawless Sapphire
-	Config.Recipes.push([Recipe.Gem, "Emerald"]); // make Flawless Emerald
-	Config.Recipes.push([Recipe.Gem, "Ruby"]); // make Flawless Ruby
-	Config.Recipes.push([Recipe.Gem, "Diamond"]); // make Flawless Diamond
-	Config.Recipes.push([Recipe.Gem, "Skull"]); // make Flawless Skull
+	//Config.Recipes.push([Recipe.Gem, "Flawless Amethyst"]); // 상급 자수정(Flawless Amethyst) -> 최상급 자수정(Perfect Amethyst)
+	//Config.Recipes.push([Recipe.Gem, "Flawless Topaz"]); // 상급 토파즈(Flawless Topaz) -> 최상급 토파즈(Perfect Topaz)
+	//Config.Recipes.push([Recipe.Gem, "Flawless Sapphire"]); // 상급 사파이어(Flawless Sapphire) -> 최상급 사파이어(Perfect Sapphire)
+	//Config.Recipes.push([Recipe.Gem, "Flawless Emerald"]); // 상급 에메랄드(Flawless Emerald) -> 최상급 에메랄드(Perfect Emerald)
+	//Config.Recipes.push([Recipe.Gem, "Flawless Ruby"]); // 상급 루비(Flawless Ruby) -> 최상급 루비(Perfect Ruby)
+	//Config.Recipes.push([Recipe.Gem, "Flawless Diamond"]); // 상급 다이아(Flawless Diamond) -> 최상급 다이아(Perfect Diamond)
+	//Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // 상급 스컬(Flawless Skull) -> 최상급 스컬(Perfect Skull)
 
-	Config.Recipes.push([Recipe.Gem, "Flawless Amethyst"]); // make Perfect Amethyst
-	Config.Recipes.push([Recipe.Gem, "Flawless Topaz"]); // make Perfect Topaz
-	Config.Recipes.push([Recipe.Gem, "Flawless Sapphire"]); // make Perfect Sapphire
-	Config.Recipes.push([Recipe.Gem, "Flawless Emerald"]); // make Perfect Emerald
-	Config.Recipes.push([Recipe.Gem, "Flawless Ruby"]); // make Perfect Ruby
-	Config.Recipes.push([Recipe.Gem, "Flawless Diamond"]); // make Perfect Diamond
-	Config.Recipes.push([Recipe.Gem, "Flawless Skull"]); // make Perfect Skull
+	//Config.Recipes.push([Recipe.Token]); // 면죄의 징표 제작
 
-	//Config.Recipes.push([Recipe.Token]); // Make Token of Absolution
-
-	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
-
-	//Config.Recipes.push([Recipe.Rune, "El Rune"]); // Upgrade El to Eld
-	//Config.Recipes.push([Recipe.Rune, "Eld Rune"]); // Upgrade Eld to Tir
-	//Config.Recipes.push([Recipe.Rune, "Tir Rune"]); // Upgrade Tir to Nef
-	//Config.Recipes.push([Recipe.Rune, "Nef Rune"]); // Upgrade Nef to Eth
-	//Config.Recipes.push([Recipe.Rune, "Eth Rune"]); // Upgrade Eth to Ith
-	//Config.Recipes.push([Recipe.Rune, "Ith Rune"]); // Upgrade Ith to Tal
-	//Config.Recipes.push([Recipe.Rune, "Tal Rune"]); // Upgrade Tal to Ral
-	//Config.Recipes.push([Recipe.Rune, "Ral Rune"]); // Upgrade Ral to Ort
-	//Config.Recipes.push([Recipe.Rune, "Ort Rune"]); // Upgrade Ort to Thul
-
-	//Config.Recipes.push([Recipe.Rune, "Thul Rune"]); // Upgrade Thul to Amn
-	//Config.Recipes.push([Recipe.Rune, "Amn Rune"]); // Upgrade Amn to Sol
-	//Config.Recipes.push([Recipe.Rune, "Sol Rune"]); // Upgrade Sol to Shael
-	//Config.Recipes.push([Recipe.Rune, "Shael Rune"]); // Upgrade Shael to Dol
-	//Config.Recipes.push([Recipe.Rune, "Dol Rune"]); // Upgrade Dol to Hel
-	//Config.Recipes.push([Recipe.Rune, "Hel Rune"]); // Upgrade Hel to Io
-	//Config.Recipes.push([Recipe.Rune, "Io Rune"]); // Upgrade Io to Lum
-	//Config.Recipes.push([Recipe.Rune, "Lum Rune"]); // Upgrade Lum to Ko
-	//Config.Recipes.push([Recipe.Rune, "Ko Rune"]); // Upgrade Ko to Fal
-	//Config.Recipes.push([Recipe.Rune, "Fal Rune"]); // Upgrade Fal to Lem
-	//Config.Recipes.push([Recipe.Rune, "Lem Rune"]); // Upgrade Lem to Pul
-
-//	Config.Recipes.push([Recipe.Rune, "Pul Rune"]); // Upgrade Pul to Um
-	//Config.Recipes.push([Recipe.Rune, "Um Rune"]); // Upgrade Um to Mal
-//	Config.Recipes.push([Recipe.Rune, "Mal Rune"]); // Upgrade Mal to Ist
-	//Config.Recipes.push([Recipe.Rune, "Ist Rune"]); // Upgrade Ist to Gul
-//	Config.Recipes.push([Recipe.Rune, "Gul Rune"]); // Upgrade Gul to Vex
-
-	// Ingredients for the following recipes will be auto-picked, for classids check libs/NTItemAlias.dbl
+	//Config.Recipes.push([Recipe.Rune, "El Rune"]); // 엘룬(El) x 3 = 엘드룬(Eld)
+	//Config.Recipes.push([Recipe.Rune, "Eld Rune"]); // 엘드룬(Eld) x 3 = 티르룬(Tir)
+	//Config.Recipes.push([Recipe.Rune, "Tir Rune"]); // 티르룬(Tir) x 3 = 네프룬(Nef)
+	//Config.Recipes.push([Recipe.Rune, "Nef Rune"]); // 네프룬(Nef) x 3 = 에드룬(Eth)
+	//Config.Recipes.push([Recipe.Rune, "Eth Rune"]); // 에드룬(Eth) x 3 = 아이드룬(Ith)
+	//Config.Recipes.push([Recipe.Rune, "Ith Rune"]); // 아이드룬(Ith) x 3 = 탈룬(Tal)
+	//Config.Recipes.push([Recipe.Rune, "Tal Rune"]); // 탈룬(Tal) x 3 = 랄룬(Ral)
+	//Config.Recipes.push([Recipe.Rune, "Ral Rune"]); // 랄룬(Ral) x 3 = 오르트룬(Ort)
+	//Config.Recipes.push([Recipe.Rune, "Ort Rune"]); // 오르트룬(Ort) x 3 = 주울룬(Thul)
+	//Config.Recipes.push([Recipe.Rune, "Thul Rune"]); // 주울룬(Thul) x 3, 최하급 토파즈(Chipped Topaz) = 앰룬(Amn)
+	//Config.Recipes.push([Recipe.Rune, "Amn Rune"]); //  앰룬(Amn) x 3, 최하급 자수정(Chipped Amethyst) = 솔룬(Sol)
+	//Config.Recipes.push([Recipe.Rune, "Sol Rune"]); // 솔룬(Sol) x 3, 최하급 사파이어(Chipped Sapphire) = 샤에룬(Shael)
+	//Config.Recipes.push([Recipe.Rune, "Shael Rune"]); // 샤에룬(Shael) x 3, 최하급 루비(Chipped Ruby) = 돌룬(Dol)
+	
+	//레더에서만 업그레이드 가능
+	//Config.Recipes.push([Recipe.Rune, "Dol Rune"]); // 돌룬(Dol) x 3, 최하급 에메랄드(Chipped Emerald) = 헬룬(Hel)
+	//Config.Recipes.push([Recipe.Rune, "Hel Rune"]); // 헬룬(Hel) x 3, 최하급 다이아(Chipped Diamond) = 포룬(Io)	
+	//Config.Recipes.push([Recipe.Rune, "Io Rune"]); // 포룬(Io) x 3, 하급 토파즈(Flawed Topaz) = 룸룬(Lum)
+	//Config.Recipes.push([Recipe.Rune, "Lum Rune"]); // 룸룬(Lum) x 3, 하급 자수정(Flawed Amethyst) = 코룬(Ko)
+	//Config.Recipes.push([Recipe.Rune, "Ko Rune"]); // 코룬(Ko) x 3, 하급 사파이어(Flawed Sapphire) = 팔룬(Fal)
+	//Config.Recipes.push([Recipe.Rune, "Fal Rune"]); // 팔룬(Fal) x 3, 하급 루비(Flawed Ruby) = 렘룬(Lem)
+	//Config.Recipes.push([Recipe.Rune, "Lem Rune"]); // 렘룬(Lem) x 3, 하급 에메랄드(Flawed Emerald) = 풀룬(Pul)
+	
+	//Config.Recipes.push([Recipe.Rune, "Pul Rune"]); // 풀룬(Pul) x 2, 하급 다이아(Flawed Diamond) = 움룬(Um)
+	//Config.Recipes.push([Recipe.Rune, "Um Rune"]); // 움룬(Um) x 2, 토파즈(Topaz) = 말룬(Mal)
+	//Config.Recipes.push([Recipe.Rune, "Mal Rune"]); // 말룬(Mal) x 2, 자수정(Amethyst) = 아이스트룬(Ist)
+	//Config.Recipes.push([Recipe.Rune, "Ist Rune"]); // 아이스트룬(Ist) x 2, 사파이어(Sapphire) = 굴룬(Gul)
+	//Config.Recipes.push([Recipe.Rune, "Gul Rune"]); // 굴룬(Gul) x 2, 루비(Ruby) = 벡스룬(Vex)
+	//Config.Recipes.push([Recipe.Rune, "Vex Rune"]); // 벡스룬(Vex) x 2, 에메랄드(Emerald) = 옴룬(ohm)
+	//Config.Recipes.push([Recipe.Rune, "ohm Rune"]); // 옴룬(ohm) x 2, 다이아(Diamond) = 로룬(lo)
+	
+	//Config.Recipes.push([Recipe.Rune, "lo Rune"]); // 로룬(lo) x 2, 상급 토파즈(Flawless Topaz) = 수르룬(sur)
+	//Config.Recipes.push([Recipe.Rune, "sur Rune"]); // 수르룬(sur) x 2, 상급 자수정(Flawless Amethyst) = 베르룬(ber)
+	//Config.Recipes.push([Recipe.Rune, "ber Rune"]); // 베르룬(ber) x 2, 상급 사파이어(Flawless Sapphire) = 자룬(jah)
+	//Config.Recipes.push([Recipe.Rune, "jah Rune"]); // 자룬(jah) x 2, 상급 루비(Flawless Ruby) = 참룬(cham)
+	//Config.Recipes.push([Recipe.Rune, "cham Rune"]); // 참룬(cham) x 2, 상급 에메랄드(Flawless Emerald) = 조드룬(zod)
 
 	//Config.Recipes.push([Recipe.Blood.Helm, "Armet"]); // Craft Blood Helm
 	//Config.Recipes.push([Recipe.Blood.Boots, "Mirrored Boots"]); // Craft Blood Boots
